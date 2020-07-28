@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript Rock, Paper, Scissors</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <link href="reset.css" rel="stylesheet" type="text/css">
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Welcome To <em>Simple</em> Rock, Paper, Scissors.</h1>
+        <hr>
+        <h2>Best Of 10. Win Or Lose.</h2>
+        <div class="round-container">
+            <h3 id="global-counter">Round: 0</h3>
+        </div>
+        <div class="graphics-hand-container">
+            <div class="user-hand-container">
+                <h4>You Choose: </h4>
+                <img class="user-img" src="/assets/rock.png" id="user-image">
+            </div>
+    
+            <div class="computer-hand-container">
+                <h4>The Computer Chooses: </h4>
+                <img class="comp-img" src="/assets/rock.png" id="computer-image">
+            </div>
+        </div>
+        <div class="answer-container">
+            <h4>Select Any Choice To Play...</h4>
+            <div class="btn-container">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
+            <div class="results-container">
+                <h4 id="winner-var">_____ Wins The Round!</h4>
+            </div>
+        </div>
+        <script src="script.js" type="text/JavaScript"></script>
+    </body>
+</html>

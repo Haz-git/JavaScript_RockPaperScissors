@@ -1,0 +1,132 @@
+html {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+.bounce {
+
+}
+
+h1 {
+    text-align: center;
+    font-size: 75px;
+    margin-top: 50px;
+}
+
+hr {
+    margin: 15px 175px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.round-container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.round-container h3 {
+    font-size: 40px;
+}
+
+.graphics-hand-container {
+    text-align: center;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.user-hand-container h4 {
+    font-size: 20px;
+}
+
+.user-hand-container .user-img {
+    transform: scaleX(-1);
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    animation-duration: 0.5s;
+    animation-iteration-count: 3;
+    transform-origin: bottom;
+}
+
+
+.computer-hand-container h4 {
+    font-size: 20px;
+}
+
+.computer-hand-container .comp-img {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    animation-duration: 0.5s;
+    animation-iteration-count: 3;
+    transform-origin: bottom;
+}
+
+.hand-bounce {
+    animation-name: hand-bounce;
+    animation-timing-function: ease;
+}
+
+@keyframes hand-bounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-100px); }
+    70%  { transform: translateY(0); }
+    100% { transform: translateY(0); }   
+}
+
+.hand-bounce-user {
+    animation-name: hand-bounce-user;
+    animation-timing-function: ease;
+}
+
+@keyframes hand-bounce-user {
+    0% { 
+        transform: translateY(0) scaleX(-1);
+    }
+
+    30% {
+        transform: translateY(-100px) scaleX(-1);
+    }
+
+    70% {
+        transform: translateY(0) scaleX(-1);
+    }
+
+    100% {
+        transform: translateY(0) scaleX(-1);
+    }
+}
+
+
+.answer-container {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.answer-container h4 {
+    font-size: 25px;
+    padding: 20px 20px;
+}
+
+.btn-container button {
+    padding: 15px 15px;
+    margin: 15px 15px;
+}
+
+.results-container {
+    font-weight: 900;
+}
