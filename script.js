@@ -5,8 +5,11 @@ let userChoiceScissors = document.getElementById("scissors");
 let scoreUser = 0;
 let scoreComp = 0;
 
+let compChoice;
+
 let globalCounterHTML = document.getElementById("global-counter");
 let globalCounter = 0;
+
 
 function refreshImages() {
     let resetUser = document.getElementById('user-image');
@@ -24,17 +27,6 @@ function changeImage(property) {
         defaultImage.src = `/assets/rock.png`;
     }
 
-    // setTimeout(() => {
-    //     refreshImages();
-    // }, 3000);
-}
-
-function randNum(limit) {
-    let rand = Math.random() * limit;
-    return Math.floor(rand);
-}
-
-function computerAnswer() {
     let comDefaultImage = document.getElementById('computer-image');
     let randNumber = randNum(11);
 
@@ -46,13 +38,16 @@ function computerAnswer() {
         comDefaultImage.src = "/assets/scissors.png";
     }
 
-    let compAns = {
-        rNum : randNumber,
-    }
-    // console.log(randNumber)
-    // setTimeout(() => {
-    //     refreshImages();
-    // }, 3000);
+    updateScore(property, comDefaultImage);
+
+    setTimeout(() => {
+        refreshImages();
+    }, 1000);
+}
+
+function randNum(limit) {
+    let rand = Math.random() * limit;
+    return Math.floor(rand);
 }
 
 let updateGlobalCounter = () => {
@@ -67,10 +62,10 @@ function roundChecker() {
 }
 
 
-function updateScore(userChoice) {
+function updateScore(userChoice, compChoice) {
     let userChoiceVar = userChoice;
     let winnerNotice = document.getElementById("winner-var");
-    let computerCurrentChoice = document.getElementById("computer-image");
+    let computerCurrentChoice = compChoice;
     let comCurChToString;
 
     if (computerCurrentChoice.outerHTML) {
@@ -106,7 +101,6 @@ function updateScore(userChoice) {
         winnerNotice.innerHTML = "You Win The Round!";
         scoreUser++
     }
-
 }
 
 function bounceHands(param) {
@@ -117,12 +111,6 @@ function bounceHands(param) {
 
     setTimeout(() => {
         changeImage(param);
-        refreshImages();
-    }, 1250);
-
-    setTimeout(() => {
-        computerAnswer();
-        refreshImages();
     }, 1250);
 
     setTimeout(() => {
@@ -165,7 +153,6 @@ function testCaseToString() {
 
 userChoicePaper.addEventListener("click", () => {
     bounceHands("paper");
-    updateScore("paper");
     updateGlobalCounter();
     roundChecker();
 });
@@ -173,7 +160,6 @@ userChoicePaper.addEventListener("click", () => {
 
 userChoiceRock.addEventListener("click", () => {
     bounceHands("rock");
-    updateScore("rock");
     updateGlobalCounter();
     roundChecker();
 });
@@ -181,7 +167,6 @@ userChoiceRock.addEventListener("click", () => {
 
 userChoiceScissors.addEventListener("click", () => {
     bounceHands("scissors");
-    updateScore("rock");
     updateGlobalCounter();
     roundChecker();
 });
@@ -202,4 +187,5 @@ userChoiceScissors.addEventListener("click", () => {
 
 //BUG: Upon adding the bouncing hands, it broke the if/else statements--It seems like the function updateScore() is getting the computer's answer element before it is altered to it's randomized choice...
 //Furthermore, I think the error above is based on using the converted-string value of what the computer randomly generates to compare to see the answers. It appears that using setTimeout() to time the bouncing motion and the resulting answer image has broke the if/else conditions.
-//The JS engine is moving past the setTimeout() and quickly parsing the updateScore(), resulting in an irregular conditional. I need to work on the async timing. Might use promises here.
+//The JS engine is moving past the setTimeout() and quickly parsing the updateScore(), resulting in a wrong conditional result.
+//^^FIXED!!!
