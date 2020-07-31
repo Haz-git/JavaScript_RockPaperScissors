@@ -30,6 +30,47 @@ h2 {
     text-align: center;
 }
 
+.popup-container {
+    background-color: rgb(212, 114, 106);
+    padding: 40px 40px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: block;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.popup-shrink {
+    text-align: center;
+}
+
+.popup-shrink h1 {
+    font-size: 45px;
+}
+
+.popup-shrink label {
+    font-size: 30px;
+}
+
+.popup-shrink button {
+    margin: 20px 20px;
+    padding: 10px 10px;
+    border-radius: 50%;
+    border: none;
+    filter: drop-shadow(0 0 0.75rem black);
+    -webkit-transition-duration: .5s;
+}
+
+.popup-shrink button:hover {
+    transform: scale(1.2);
+}
+
+.popup-shrink button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .round-container h3 {
     font-size: 40px;
     color: white;
@@ -40,6 +81,10 @@ h2 {
     margin-top: 30px;
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.user-hand-container {
+    overflow: hidden;
 }
 
 .user-hand-container h4 {
