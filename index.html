@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>JavaScript Rock, Paper, Scissors</title>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/4194a93c4e.js" crossorigin="anonymous"></script>
         <link href="reset.css" rel="stylesheet" type="text/css">
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
@@ -28,14 +28,21 @@
         <div class="answer-container">
             <h4>Select Any Choice To Play...</h4>
             <div class="btn-container">
-                <button id="rock">Rock</button>
-                <button id="paper">Paper</button>
-                <button id="scissors">Scissors</button>
+                <button id="rock">
+                    <i class="fa fa-hand-rock-o fa-3x"></i>
+                </button>
+                <button id="paper">
+                    <i class="fa fa-hand-paper-o fa-3x" aria-hidden="true"></i>
+                </button>
+                <button id="scissors">
+                    <i class="fa fa-hand-scissors-o fa-3x" aria-hidden="true"></i>
+                </button>
             </div>
             <div class="results-container">
                 <h4 id="winner-var">_____ Wins The Round!</h4>
             </div>
         </div>
+        <div class="signature">Created By: Harry Zhou</div>
         <script src="script.js" type="text/JavaScript"></script>
     </body>
 </html>
