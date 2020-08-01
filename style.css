@@ -31,12 +31,12 @@ h2 {
 }
 
 .popup-container {
-    background-color: rgb(212, 114, 106);
+    background-color: rgb(211, 111, 103);
     padding: 40px 40px;
     left: 0;
     right: 0;
     position: absolute;
-    display: block;
+    display: none; /*change to block when user round 10 */
     z-index: 9999;
     overflow: hidden;
 }
@@ -45,21 +45,39 @@ h2 {
     text-align: center;
 }
 
+.popup-shrink .fa-exclamation-triangle {
+    color: rgb(80, 0, 16);
+    background-color: none;
+    filter: drop-shadow(0 0 1rem rgb(255, 63, 48));
+}
+
 .popup-shrink h1 {
     font-size: 45px;
+    padding: 25px 25px;
 }
 
 .popup-shrink label {
     font-size: 30px;
+    padding: 20px 20px;
 }
 
 .popup-shrink button {
     margin: 20px 20px;
-    padding: 10px 10px;
+    padding: 20px 20px;
     border-radius: 50%;
     border: none;
     filter: drop-shadow(0 0 0.75rem black);
     -webkit-transition-duration: .5s;
+}
+
+.popup-shrink #playagain {
+    background-color: rgb(70, 143, 115);
+    color: rgb(57, 113, 18);
+}
+
+.popup-shrink #quit {
+    color: rgb(124, 20, 30);
+    background-color: rgb(204, 99, 109);
 }
 
 .popup-shrink button:hover {

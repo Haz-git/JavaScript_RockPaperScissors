@@ -2,6 +2,10 @@ let userChoicePaper = document.getElementById("paper");
 let userChoiceRock = document.getElementById("rock");
 let userChoiceScissors = document.getElementById("scissors");
 
+let popUp = document.getElementById("popUp");
+let reload = document.getElementById("playagain");
+let quit = document.getElementById("quit");
+
 let scoreUser = 0;
 let scoreComp = 0;
 
@@ -10,6 +14,38 @@ let compChoice;
 let globalCounterHTML = document.getElementById("global-counter");
 let globalCounter = 0;
 
+
+function enablePopUp(a,b) {
+    let popUpLabel = document.getElementById("popuplabel");
+
+    if (a > b) {
+        popUpLabel.innerHTML = `Looks like You've Won By ${scoreUser - scoreComp} Point(s)!!`;
+    } else if (b > a) {
+        popUpLabel.innerHTML = `Looks Like You've Lost By ${scoreComp - scoreUser} Point(s)!!`;
+    } else {
+        popUpLabel.innerHTML = `It's a Draw!`;
+    }
+    popUp.style.display = "block";
+}
+
+let onReload = () => location.reload();
+
+let onQuit = () => window.close();
+
+// let resultGiver = (a,b) => {
+//     if (a > b) {
+//         alert(`You've Won By ${scoreUser - scoreComp} Point(s)!!`);
+//     } else if (b > a) {
+//         alert(`You've Lost By ${scoreComp - scoreUser} Point(s)!!`);
+//     }
+//     location.reload(); <---This should be referenced if the user hits the reload button...
+// }
+
+function roundChecker() {
+    if (globalCounter === 10) {
+        enablePopUp(scoreUser, scoreComp);
+    }
+}
 
 function refreshImages() {
     let resetUser = document.getElementById('user-image');
@@ -55,11 +91,6 @@ let updateGlobalCounter = () => {
     globalCounterHTML.innerHTML = `Round: ${globalCounter}`;
 }
 
-function roundChecker() {
-    if (globalCounter === 10) {
-        resultGiver(scoreUser, scoreComp);
-    }
-}
 
 
 function updateScore(userChoice, compChoice) {
@@ -125,14 +156,6 @@ function removeClass() {
     compImgR.classList.remove("hand-bounce");
 }
 
-let resultGiver = (a,b) => {
-    if (a > b) {
-        alert(`You've Won By ${scoreUser - scoreComp} Point(s)!!`);
-    } else if (b > a) {
-        alert(`You've Lost By ${scoreComp - scoreUser} Point(s)!!`);
-    }
-    location.reload();
-}
 
 //Test Case for String Conversion
 
@@ -150,6 +173,8 @@ function testCaseToString() {
         return console.log(true);
     }//Conversion from grabbed document element to string + comparison works.
 }
+
+//Event Listeners
 
 userChoicePaper.addEventListener("click", () => {
     bounceHands("paper");
@@ -171,6 +196,9 @@ userChoiceScissors.addEventListener("click", () => {
     roundChecker();
 });
 
+reload.addEventListener('click', onReload);
+
+quit.addEventListener('click', onQuit);
 
 //Project Objectives:
 
